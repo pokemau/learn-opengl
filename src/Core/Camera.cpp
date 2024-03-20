@@ -42,31 +42,33 @@ void Camera::ProcessKeyboardMovement(CameraMovementDirection dir,
 }
 
 void Camera::Draw(float deltaTime) {
-    float upSpeed = JumpSpeed - 2.0f;
-    float vel = JumpSpeed * deltaTime;
+
+    float velocity = upSpeed * deltaTime;
+
+    float maxJumpHeigt = 2.5f;
+
+    std::cout << "UPSPEED: " << upSpeed << std::endl;
 
     if (state == JUMPING) {
 
-        if (Position.y >= 2.0f) {
-            Position.y += upSpeed * deltaTime;
-        } else {
-            Position.y += JumpSpeed * deltaTime;
-        }
+        upSpeed -= 0.03f;
 
-        if (Position.y >= 3.0f) {
+        Position += WorldUp * velocity;
+
+        if (Position.y >= maxJumpHeigt || upSpeed <= 0.0f) {
             state = GOING_DOWN;
         }
     }
 
     if (state == GOING_DOWN) {
-        if (Position.y >= 2.0f) {
-            Position.y -= upSpeed * deltaTime;
-        } else if (Position.y >= 0.0f ) {
-            Position.y -= JumpSpeed * deltaTime;
-        }
+
+        upSpeed += 0.03f;
+
+        Position -= WorldUp * velocity;
 
         if (Position.y <= 0.0f) {
             Position.y = 0.0f;
+            upSpeed = JumpSpeed;
             state = IDLE;
         }
     }

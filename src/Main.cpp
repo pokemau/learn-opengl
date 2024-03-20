@@ -388,11 +388,15 @@ unsigned int drawSkybox() {
 unsigned int drawWall() {
 
   glm::vec3 terrainPos[] = {
-      glm::vec3(-20.0f, 0.0f, 10.0f),  glm::vec3(0.0f, 0.0f, 10.0f),
-      glm::vec3(20.0f, 0.0f, 10.0f),   glm::vec3(-20.0f, 0.0f, -10.0f),
-      glm::vec3(0.0f, 0.0f, -10.0f),   glm::vec3(20.0f, 0.0f, -10.0f),
-      glm::vec3(-20.0f, 0.0f, -30.0f), glm::vec3(0.0f, 0.0f, -30.0f),
-      glm::vec3(20.0f, 0.0f, -30.0f),
+      glm::vec3(-20.0f, 0.0f, 10.0f),  
+      glm::vec3(  0.0f, 0.0f, 10.0f),
+      glm::vec3( 20.0f, 0.0f, 10.0f),   
+      glm::vec3(-20.0f, 0.0f,-10.0f),
+      glm::vec3(  0.0f, 0.0f,-10.0f),   
+      glm::vec3( 20.0f, 0.0f,-10.0f),
+      glm::vec3(-20.0f, 0.0f,-30.0f), 
+      glm::vec3(  0.0f, 0.0f,-30.0f),
+      glm::vec3( 20.0f, 0.0f,-30.0f),
   };
   float terrainVertices[] = {
       -10.0f, -2.0f, 10.0f,  0.0f, 0.0f, 10.0f,  -2.0f, 10.0f,  1.0f, 0.0f,

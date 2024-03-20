@@ -28,7 +28,7 @@ const float PITCH   = 0.0f;
 const float SPEED   = 7.0f;
 const float SENS    = 0.07f;
 const float ZOOM    = 45.0f;
-const float JUMPVEL = 15.0f;
+const float JUMPVEL = 10.0f;
 
 class Camera {
 
@@ -45,6 +45,10 @@ class Camera {
     float MouseSens;
     float JumpSpeed;
     float Zoom;
+
+    // TODO
+    // test jump vars
+    float upSpeed = JumpSpeed;
 
 public:
     PlayerState state;
