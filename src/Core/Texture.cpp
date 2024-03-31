@@ -14,19 +14,20 @@ Texture::Texture(const char *texturePath, TextureType type, GLenum target) {
 
     int width, height, nrChannels;
     stbi_set_flip_vertically_on_load(true);
-    unsigned char* data = stbi_load(texturePath, &width,
-                                    &height, &nrChannels, 0);
+    unsigned char *data =
+        stbi_load(texturePath, &width, &height, &nrChannels, 0);
 
     if (data) {
 
-        if(type == JPG) {
-            glTexImage2D(target, 0, GL_RGB, width, height, 0, GL_RGB, GL_UNSIGNED_BYTE, data);
-        } else if(type == PNG) {
-            glTexImage2D(target, 0, GL_RGBA, width, height, 0, GL_RGBA, GL_UNSIGNED_BYTE, data);
+        if (type == JPG) {
+            glTexImage2D(target, 0, GL_RGB, width, height, 0, GL_RGB,
+                         GL_UNSIGNED_BYTE, data);
+        } else if (type == PNG) {
+            glTexImage2D(target, 0, GL_RGBA, width, height, 0, GL_RGBA,
+                         GL_UNSIGNED_BYTE, data);
         }
         glGenerateMipmap(target);
-    }
-    else {
+    } else {
         std::cout << "ERROR::FAILED::TO::LOAD::TEXTURE" << std::endl;
     }
     stbi_image_free(data);

@@ -1,18 +1,14 @@
 #ifndef SLOMMGL_GL_H
 #define SLOMMGL_GL_H
 
-#include "../../vendor/glad/include/glad/glad.h"
-#include "../../vendor/glfw-3.4/include/GLFW/glfw3.h"
-// #include <glad/glad.h>
-// #include <GLFW/glfw3.h>
-
-#include <iostream>
-
+#include <glad/glad.h>
+#include <GLFW/glfw3.h>
+#include <string>
 
 class GL {
-    GLFWwindow *_window;
 
 public:
+    GLFWwindow *_window;
     void Init(int SCREEN_W, int SCREEN_H, const std::string& title);
     GLFWwindow *GetWindowPointer();
     bool WindowIsOpen();

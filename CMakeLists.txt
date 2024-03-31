@@ -20,10 +20,10 @@ add_executable(${PROJECT_NAME}
         vendor/stb_image/Stb.cpp
         src/Core/Texture.cpp
         src/Core/Texture.h
-        src/Core/Camera.h
-        src/Core/Camera.cpp
-        src/Core/Terrain.cpp
-        src/Core/Terrain.h
+        #src/Core/Camera.h
+        #src/Core/Camera.cpp
+        src/Core/Player.h
+        src/Core/Player.cpp
 )
 
 ############## GLFW ###################

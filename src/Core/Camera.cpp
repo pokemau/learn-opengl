@@ -1,80 +1,14 @@
 #include "Camera.h"
 
-#include <iostream>
-
 Camera::Camera()
-    : MoveSpeed(SPEED), MouseSens(SENS), JumpSpeed(JUMPVEL), Zoom(ZOOM),
+    : MoveSpeed(SPEED), MouseSens(SENS), Zoom(ZOOM),
       Position(glm::vec3(0.0f, 0.0f, 10.0f)),
       Front(glm::vec3(0.0f, 0.0f, -1.0f)), WorldUp(glm::vec3(0.0f, 1.0f, 0.0f)),
-      Yaw(YAW), Pitch(PITCH), state(IDLE) {
+      Yaw(YAW), Pitch(PITCH) {
 
     updateCameraVectors();
 }
 
-void Camera::ProcessKeyboardMovement(CameraMovementDirection dir,
-                                     float deltaTime) {
-
-    float velocity = MoveSpeed * deltaTime;
-
-    glm::vec3 tempUp = glm::vec3(0.0f, 1.0f, 0.0f);
-
-    if (dir == JUMP) {
-        state = JUMPING;
-    }
-
-    if (dir == FORWARD) {
-        Position += Front * velocity;
-    }
-    if (dir == BACKWARD) {
-        Position += -Front * velocity;
-    }
-    if (dir == LEFT) {
-        Position -= Right * velocity;
-    }
-    if (dir == RIGHT) {
-        Position += Right * velocity;
-    }
-
-    if (state != JUMPING && state != GOING_DOWN) {
-        Position.y = 0.0f;
-    }
-
-}
-
-void Camera::Draw(float deltaTime) {
-
-    float velocity = upSpeed * deltaTime;
-
-    float maxJumpHeigt = 2.5f;
-
-    std::cout << "UPSPEED: " << upSpeed << std::endl;
-
-    if (state == JUMPING) {
-
-        upSpeed -= 0.03f;
-
-        Position += WorldUp * velocity;
-
-        if (Position.y >= maxJumpHeigt || upSpeed <= 0.0f) {
-            state = GOING_DOWN;
-        }
-    }
-
-    if (state == GOING_DOWN) {
-
-        upSpeed += 0.03f;
-
-        Position -= WorldUp * velocity;
-
-        if (Position.y <= 0.0f) {
-            Position.y = 0.0f;
-            upSpeed = JumpSpeed;
-            state = IDLE;
-        }
-    }
-
-    // std::cout << "POS Y: " << Position.y << std::endl;
-}
 
 void Camera::ProcessMouseMovement(float xOffset, float yOffset) {
 
