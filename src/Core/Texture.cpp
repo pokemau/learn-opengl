@@ -2,7 +2,7 @@
 
 #include <iostream>
 
-unsigned int Texture::GetID() const { return ID; }
+unsigned int Texture::GetID() { return ID; }
 
 Texture::Texture(const char *texturePath, TextureType type, GLenum target) {
     glGenTextures(1, &ID);

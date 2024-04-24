@@ -12,7 +12,7 @@ class Texture {
   public:
     Texture(const char *texturePath, TextureType type, GLenum target);
 
-    [[nodiscard]] unsigned int GetID() const;
+    unsigned int GetID();
 };
 
 #endif // SLOMMGL_TEXTURE_H
