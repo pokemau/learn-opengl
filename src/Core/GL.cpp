@@ -1,4 +1,5 @@
 #include "GL.h"
+#include "GLFW/glfw3.h"
 #include <iostream>
 
 void framebuffer_size_callback(GLFWwindow *window, int width, int height) {
@@ -10,6 +11,7 @@ void GL::Init(int SCREEN_W, int SCREEN_H, const std::string &title) {
     glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
     glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
     glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
+    glfwWindowHint(GLFW_RESIZABLE, GLFW_FALSE);
 
     _window =
         glfwCreateWindow(SCREEN_W, SCREEN_H, title.c_str(), nullptr, nullptr);
@@ -21,8 +23,6 @@ void GL::Init(int SCREEN_W, int SCREEN_H, const std::string &title) {
 
     glfwMakeContextCurrent(_window);
 
-    // disable vsync
-    //    glfwSwapInterval(0);
     glfwSetFramebufferSizeCallback(_window, framebuffer_size_callback);
 
     if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress)) {

@@ -7,13 +7,11 @@
 enum PlayerState { IDLE, WALKING, JUMPING, FALLING };
 enum PlayerMoveDir { FORWARD, BACKWARD, LEFT, RIGHT };
 
-
 class Player {
 
     const float JUMPVEL = 20.0f;
 
-
-  public:
+public:
     Player(GLFWwindow *window);
     ~Player();
 
@@ -27,7 +25,7 @@ class Player {
     void UpdateCamera();
     void MouseLook(float xOffset, float yOffset);
 
-  private:
+private:
     GLFWwindow *_window;
     glm::vec3 _position;
     glm::vec3 _viewPos;
@@ -40,7 +38,6 @@ class Player {
     float _zoom;
     float Yaw;
     float Pitch;
-    
 
     // TODO: TEST JUMP VARS
     float _jumpSpeed;

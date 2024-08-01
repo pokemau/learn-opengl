@@ -166,7 +166,7 @@ void Player::updateCameraVectors() {
 
     glm::vec3 newFront;
     newFront.x = cos(glm::radians(Yaw)) * cos(glm::radians(Pitch));
-    // newFront.y = sin(glm::radians(Pitch));
+    newFront.y = sin(glm::radians(Pitch));
     newFront.z = sin(glm::radians(Yaw)) * cos(glm::radians(Pitch));
     _forward = glm::normalize(newFront);
     _right = glm::normalize(glm::cross(_forward, _worldUp));

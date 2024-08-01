@@ -14,7 +14,6 @@ unsigned int loadCubemap(std::vector<std::string> faces);
 const int SCREEN_W = 800;
 const int SCREEN_H = 600;
 
-
 float lastX = SCREEN_W / 2.0f;
 float lastY = SCREEN_H / 2.0f;
 bool firstMouse = true;
@@ -173,7 +172,7 @@ int main() {
         glBindTexture(GL_TEXTURE_CUBE_MAP, cubemapTexture);
         glDrawArrays(GL_TRIANGLES, 0, 36);
         glBindVertexArray(0);
-        glDepthFunc(GL_LESS); 
+        glDepthFunc(GL_LESS);
 
         app.SwapBuffersPollEvents();
     }
