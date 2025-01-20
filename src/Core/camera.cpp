@@ -1,4 +1,4 @@
-#include "Camera.h"
+#include "camera.hpp"
 
 Camera::Camera()
     : MoveSpeed(SPEED), MouseSens(SENS), Zoom(ZOOM),

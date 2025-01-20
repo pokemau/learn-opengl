@@ -1,8 +1,8 @@
-#include "Core/Camera.h"
-#include "Core/GL.h"
-#include "Core/Player.h"
-#include "Core/Shader.h"
-#include "Core/Texture.h"
+#include "Core/camera.hpp"
+#include "Core/gl.hpp"
+#include "Core/player.hpp"
+#include "Core/shader.hpp"
+#include "Core/texture.hpp"
 
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>

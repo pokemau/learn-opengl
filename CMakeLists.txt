@@ -6,25 +6,35 @@ set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
 include_directories(
-        vendor/glad/include
-        vendor/glfw-3.4/include
-        vendor/stb_image
-        vendor/glm
+    vendor/glad/include
+    vendor/glfw-3.4/include
+    vendor/stb_image
+    vendor/glm
 )
 
+file(GLOB_RECURSE SRC_FILES
+    src/**/*.cpp
+    src/*.cpp
+    src/**/**/*.cpp
+    src/**/**/**/*.cpp
+)
+set(STB_SRC vendor/stb_image/stb.cpp)
+
 add_executable(${PROJECT_NAME}
-        src/Main.cpp
-        src/Core/GL.cpp
-        src/Core/GL.h
-        src/Core/Shader.cpp
-        src/Core/Shader.h
-        vendor/stb_image/Stb.cpp
-        src/Core/Texture.cpp
-        src/Core/Texture.h
-        #src/Core/Camera.h
-        #src/Core/Camera.cpp
-        src/Core/Player.h
-        src/Core/Player.cpp
+    ${SRC_FILES}
+    ${STB_SRC}
+#        src/Main.cpp
+#        src/Core/GL.cpp
+#        src/Core/GL.h
+#        src/Core/Shader.cpp
+#        src/Core/Shader.h
+#        vendor/stb_image/Stb.cpp
+#        src/Core/Texture.cpp
+#        src/Core/Texture.h
+#        #src/Core/Camera.h
+#        #src/Core/Camera.cpp
+#        src/Core/Player.h
+#        src/Core/Player.cpp
 )
 
 ############## GLFW ###################

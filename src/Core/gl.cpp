@@ -1,4 +1,4 @@
-#include "GL.h"
+#include "gl.hpp"
 #include "GLFW/glfw3.h"
 #include <iostream>
 
